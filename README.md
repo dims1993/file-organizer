@@ -29,6 +29,14 @@ Example:
 python src/organizer.py ~/Downloads
 ```
 
+## Dry Run Mode
+
+This mode simulates the organization without moving any files.
+
+```bash
+python src/organizer.py /path/to/your/folder --dry-run
+```
+
 ## Technologies Used
 
 - Python 3
