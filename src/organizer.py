@@ -58,16 +58,20 @@ def main():
         logger.info("Modo Dry Run activado: no se moverán archivos.")
 
     files_by_extension = read_folder_contents(folder)
-
+    
+    if not files_by_extension:
+            logger.warning("No se encontraron archivos para organizar.")
+            return
+    
     if mode == "date":
         all_files = []
         for files in files_by_extension.values():
             all_files.extend(files)
-
-        organize_by_date(all_files, folder, dry_run, stats)
+            
+        stats = organize_by_date(all_files, folder, dry_run)
         
     else:
-        organize_by_extension(files_by_extension, folder, dry_run, stats)
+        stats = organize_by_extension(files_by_extension, folder, dry_run)
 
     logger.info("Resumen de ejecución:")
     logger.info(f"Archivos analizados: {stats['total']}")
