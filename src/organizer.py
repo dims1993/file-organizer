@@ -22,7 +22,6 @@ def init_stats():
 
 
 def main():
-    stats = init_stats()
 
     parser = argparse.ArgumentParser(description="Organizador de archivos por extensión o fecha")
 
